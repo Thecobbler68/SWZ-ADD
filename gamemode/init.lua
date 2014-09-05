@@ -958,6 +958,14 @@ function GM:Think()
 					end
 				end
 
+				if pl.BuffAdrenaline then
+					if pl.LastAd < CurTime() and pl.AdCharges > 0 then
+						pl:SetHealth(math.min(pl:GetMaxHealth(), pl:Health() + 1))
+						pl.AdCharges = pl.AdCharges - 1
+						pl.LastAd = CurTime()
+					end
+				end
+
 				if pl.BuffAntidote then
 					if pl:Health() > pl:GetMaxHealth() then
 						pl:SetHealth(pl:GetMaxHealth())
@@ -1613,8 +1621,11 @@ function GM:PlayerInitialSpawnRound(pl)
 	pl.PointsCommission = 0
 	pl.CarryOverCommision = 0
 	pl.NextRegenerate = 0
+	pl.LastAd = 0
+	pl.AdCharges = 0
 	pl.NestsDestroyed = 0
 	pl.NestSpawns = 0
+	pl.AdrenalineLeft = 0
 	pl.AlreadyHealed = false
 
 	local nosend = not pl.DidInitPostEntity
@@ -1626,6 +1637,7 @@ function GM:PlayerInitialSpawnRound(pl)
 	pl.BuffRegenerative = nil
 	pl.BuffMurderer = nil
 	pl.BuffAntidote = nil
+	pl.BuffAdrenaline = nil
 	pl.BuffMovingExpert = nil
 	pl.BuffSurvivor = nil
 	pl.BuffMuscular = nil
