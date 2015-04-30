@@ -1,4 +1,4 @@
---[[
+ZZ--[[
 
 Zombie Survival
 by William "JetBoom" Moodhe
@@ -3373,6 +3373,7 @@ end)
 
 local VoiceSetTranslate = {}
 VoiceSetTranslate["models/player/alyx.mdl"] = "alyx"
+VoiceSetTranslate["models/mark2580/borderlands_ps/moxxi_garage.mdl"] = "female"
 VoiceSetTranslate["models/player/barney.mdl"] = "barney"
 VoiceSetTranslate["models/player/breen.mdl"] = "male"
 VoiceSetTranslate["models/player/combine_soldier.mdl"] = "combine"
